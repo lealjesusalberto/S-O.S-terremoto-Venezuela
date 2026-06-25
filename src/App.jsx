@@ -373,11 +373,6 @@ export default function App() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          {isFirebaseConnected ? (
-            <span className="connection-badge firebase">🔥 Firestore Activo</span>
-          ) : (
-            <span className="connection-badge local">💻 Modo Local</span>
-          )}
           <div className="emergency-badge">
             <AlertTriangle size={16} />
             <span>Sismo de Emergencia</span>
