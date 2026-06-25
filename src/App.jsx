@@ -95,6 +95,7 @@ export default function App() {
   const [description, setDescription] = useState('');
   const [hospitalName, setHospitalName] = useState('');
   const [hospitalDetails, setHospitalDetails] = useState('');
+  const [cedula, setCedula] = useState('');
   const [photo, setPhoto] = useState(null); // String Base64 comprimida
   const [formPosition, setFormPosition] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -251,6 +252,7 @@ export default function App() {
         photo,
         hospitalName: status === 'hospitalized' ? hospitalName : '',
         hospitalDetails: status === 'hospitalized' ? hospitalDetails : '',
+        cedula,
         location: {
           lat: formPosition.lat,
           lng: formPosition.lng
@@ -265,6 +267,7 @@ export default function App() {
       setDescription('');
       setHospitalName('');
       setHospitalDetails('');
+      setCedula('');
       setPhoto(null);
       setFormPosition(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
@@ -532,7 +535,14 @@ export default function App() {
                       {/* Cuerpo de información */}
                       <div className="card-content">
                         <div className="card-header">
-                          <h3 className="card-name">{report.name}</h3>
+                          <h3 className="card-name">
+                            {report.name}
+                            {report.cedula && (
+                              <span style={{ fontSize: '0.8rem', color: 'hsl(var(--text-muted))', fontWeight: '500', display: 'block', marginTop: '0.25rem' }}>
+                                C.I. {report.cedula}
+                              </span>
+                            )}
+                          </h3>
                           <span className={`status-badge ${report.status}`}>
                             {getStatusText(report.status)}
                           </span>
@@ -633,7 +643,14 @@ export default function App() {
 
                         <div className="popup-info-body">
                           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
-                            <span className="popup-name">{report.name}</span>
+                            <span className="popup-name">
+                              {report.name}
+                              {report.cedula && (
+                                <span style={{ fontSize: '0.75rem', color: 'hsl(var(--text-muted))', fontWeight: '500', display: 'block', marginTop: '0.1rem' }}>
+                                  C.I. {report.cedula}
+                                </span>
+                              )}
+                            </span>
                             <span className={`status-badge ${report.status}`} style={{ transform: 'scale(0.85)', transformOrigin: 'right' }}>
                               {getStatusText(report.status)}
                             </span>
@@ -736,6 +753,18 @@ export default function App() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="cedula">Cédula de Identidad (Opcional)</label>
+                  <input 
+                    type="text" 
+                    id="cedula"
+                    className="form-control"
+                    placeholder="Ej. V-12345678"
+                    value={cedula}
+                    onChange={(e) => setCedula(e.target.value)}
                   />
                 </div>
 

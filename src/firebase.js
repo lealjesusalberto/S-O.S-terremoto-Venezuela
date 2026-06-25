@@ -173,6 +173,7 @@ export const addReport = async (reportData) => {
     photo: reportData.photo || null,
     hospitalName: reportData.hospitalName || '',
     hospitalDetails: reportData.hospitalDetails || '',
+    cedula: reportData.cedula || '',
     createdAt: isFirebaseConnected ? serverTimestamp() : new Date().toISOString()
   };
 
