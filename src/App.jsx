@@ -13,6 +13,15 @@ import {
   subscribeToReports, 
   addReport, 
   updateReportStatus, 
+  subscribeToHelpItems,
+  addHelpItem,
+  subscribeToBloodDonors,
+  subscribeToBloodRequests,
+  addBloodDonor,
+  addBloodRequest,
+  deleteBloodRequest,
+  deleteBloodDonor,
+  BLOOD_TYPES,
   isFirebaseConnected 
 } from './firebase';
 import { 
@@ -30,7 +39,17 @@ import {
   ArrowRight,
   User,
   Camera,
-  Trash2
+  Trash2,
+  Truck,
+  Home,
+  Activity,
+  ShieldAlert,
+  MessageSquare,
+  X,
+  Droplets,
+  Hospital,
+  BadgeAlert,
+  Syringe
 } from 'lucide-react';
 
 // Generar Marcador personalizado usando Leaflet DivIcon para evitar URLs rotas de assets
@@ -102,6 +121,23 @@ export default function App() {
   const [formError, setFormError] = useState('');
   const [formSuccess, setFormSuccess] = useState(false);
 
+  // Estados para el Tablón de Ayuda
+  const [helpItems, setHelpItems] = useState([]);
+  const [helpSearchQuery, setHelpSearchQuery] = useState('');
+  const [helpCategoryFilter, setHelpCategoryFilter] = useState('all');
+  const [helpTypeFilter, setHelpTypeFilter] = useState('all'); // 'all' | 'need' | 'offer'
+  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
+
+  // Formulario de Anuncio del Tablón
+  const [helpTitle, setHelpTitle] = useState('');
+  const [helpDescription, setHelpDescription] = useState('');
+  const [helpType, setHelpType] = useState('need'); // 'need' | 'offer'
+  const [helpCategory, setHelpCategory] = useState('medicines');
+  const [helpUrgency, setHelpUrgency] = useState('low'); // 'low' | 'medium' | 'critical'
+  const [helpLocationName, setHelpLocationName] = useState('');
+  const [helpContactName, setHelpContactName] = useState('');
+  const [helpContactPhone, setHelpContactPhone] = useState('');
+
   // Estado de búsqueda de geocodificación
   const [isSearchingLocation, setIsSearchingLocation] = useState(false);
 
@@ -116,6 +152,62 @@ export default function App() {
       if (unsubscribe) unsubscribe();
     };
   }, []);
+
+  // Escuchar anuncios del tablón en tiempo real
+  useEffect(() => {
+    const unsubscribe = subscribeToHelpItems((data) => {
+      setHelpItems(data);
+    });
+    return () => {
+      if (unsubscribe) unsubscribe();
+    };
+  }, []);
+
+  // === BANCO DE SANGRE ===
+  const [bloodDonors, setBloodDonors] = useState([]);
+  const [bloodRequests, setBloodRequests] = useState([]);
+  const [bloodSubTab, setBloodSubTab] = useState('requests'); // 'requests' | 'donors'
+  const [bloodTypeFilter, setBloodTypeFilter] = useState('all');
+  const [isBloodDonorModalOpen, setIsBloodDonorModalOpen] = useState(false);
+  const [isBloodRequestModalOpen, setIsBloodRequestModalOpen] = useState(false);
+
+  // Formulario donante
+  const [donorBloodType, setDonorBloodType] = useState('O+');
+  const [donorName, setDonorName] = useState('');
+  const [donorPhone, setDonorPhone] = useState('');
+  const [donorLocation, setDonorLocation] = useState('');
+  const [donorLastDonation, setDonorLastDonation] = useState('');
+
+  // Formulario solicitud hospital
+  const [reqBloodType, setReqBloodType] = useState('O-');
+  const [reqUrgency, setReqUrgency] = useState('critical');
+  const [reqUnits, setReqUnits] = useState(1);
+  const [reqHospital, setReqHospital] = useState('');
+  const [reqLocation, setReqLocation] = useState('');
+  const [reqCondition, setReqCondition] = useState('');
+  const [reqContactName, setReqContactName] = useState('');
+  const [reqContactPhone, setReqContactPhone] = useState('');
+
+  useEffect(() => {
+    // Limpiar entradas de prueba locales (ids que empiezan con 'request-local-' o 'donor-local-')
+    try {
+      const reqs = JSON.parse(localStorage.getItem('venezuela_blood_requests') || '[]');
+      const cleanReqs = reqs.filter(r => !r.id.startsWith('request-local-'));
+      localStorage.setItem('venezuela_blood_requests', JSON.stringify(cleanReqs));
+
+      const donors = JSON.parse(localStorage.getItem('venezuela_blood_donors') || '[]');
+      const cleanDonors = donors.filter(d => !d.id.startsWith('donor-local-'));
+      localStorage.setItem('venezuela_blood_donors', JSON.stringify(cleanDonors));
+    } catch(e) { /* ignorar */ }
+
+    const unsub1 = subscribeToBloodDonors(setBloodDonors);
+    const unsub2 = subscribeToBloodRequests(setBloodRequests);
+    return () => {
+      if (unsub1) unsub1();
+      if (unsub2) unsub2();
+    };
+  }, []);
+
 
   // Procesar y comprimir la imagen en el cliente usando HTML5 Canvas a Base64
   const handleImageChange = (e) => {
@@ -282,6 +374,47 @@ export default function App() {
     }
   };
 
+  // Enviar anuncio al tablón de ayuda
+  const handleSubmitHelpItem = async (e) => {
+    e.preventDefault();
+    if (!helpTitle || !helpDescription || !helpLocationName || !helpContactName || !helpContactPhone) {
+      alert('Por favor complete todos los campos obligatorios.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await addHelpItem({
+        type: helpType,
+        category: helpCategory,
+        urgency: helpUrgency,
+        title: helpTitle,
+        description: helpDescription,
+        locationName: helpLocationName,
+        contactName: helpContactName,
+        contactPhone: helpContactPhone
+      });
+
+      // Limpiar formulario
+      setHelpTitle('');
+      setHelpDescription('');
+      setHelpType('need');
+      setHelpCategory('medicines');
+      setHelpUrgency('low');
+      setHelpLocationName('');
+      setHelpContactName('');
+      setHelpContactPhone('');
+      setIsHelpModalOpen(false);
+      
+      alert('Anuncio publicado con éxito en el tablón.');
+    } catch (err) {
+      alert('Hubo un error al enviar el anuncio: ' + err.message);
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   // Cambiar el estado de un reporte
   const handleStatusChange = async (reportId, newStatus) => {
     try {
@@ -310,6 +443,20 @@ export default function App() {
     const matchesStatus = statusFilter === 'all' || report.status === statusFilter;
     
     return matchesSearch && matchesStatus;
+  });
+
+  // Filtrar anuncios del tablón
+  const filteredHelpItems = helpItems.filter((item) => {
+    const matchesSearch = 
+      item.title.toLowerCase().includes(helpSearchQuery.toLowerCase()) ||
+      item.description.toLowerCase().includes(helpSearchQuery.toLowerCase()) ||
+      item.locationName.toLowerCase().includes(helpSearchQuery.toLowerCase()) ||
+      item.contactName.toLowerCase().includes(helpSearchQuery.toLowerCase());
+      
+    const matchesCategory = helpCategoryFilter === 'all' || item.category === helpCategoryFilter;
+    const matchesType = helpTypeFilter === 'all' || item.type === helpTypeFilter;
+    
+    return matchesSearch && matchesCategory && matchesType;
   });
 
   const getStatusText = (statusVal) => {
@@ -354,6 +501,90 @@ export default function App() {
   const missingCount = reports.filter(r => r.status === 'missing').length;
   const hospitalizedCount = reports.filter(r => r.status === 'hospitalized').length;
   const safeCount = reports.filter(r => r.status === 'safe').length;
+
+  // Filtros banco de sangre
+  const filteredBloodRequests = bloodRequests.filter(r =>
+    bloodTypeFilter === 'all' || r.bloodType === bloodTypeFilter
+  );
+  const filteredBloodDonors = bloodDonors.filter(d =>
+    bloodTypeFilter === 'all' || d.bloodType === bloodTypeFilter
+  );
+
+  // Enviar registro de donante
+  const handleSubmitDonor = async (e) => {
+    e.preventDefault();
+    if (!donorName || !donorPhone || !donorLocation) {
+      alert('Por favor completa todos los campos obligatorios.');
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      await addBloodDonor({
+        bloodType: donorBloodType,
+        name: donorName,
+        phone: donorPhone,
+        locationName: donorLocation,
+        lastDonation: donorLastDonation
+      });
+      setDonorName(''); setDonorPhone(''); setDonorLocation(''); setDonorLastDonation('');
+      setIsBloodDonorModalOpen(false);
+      alert('¡Gracias! Tu registro como donante fue guardado.');
+    } catch (err) {
+      alert('Error al registrar: ' + err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Eliminar una solicitud de sangre
+  const handleDeleteBloodRequest = async (id) => {
+    if (!window.confirm('¿Eliminar esta solicitud de sangre?')) return;
+    try {
+      await deleteBloodRequest(id);
+    } catch (err) {
+      alert('Error al eliminar: ' + err.message);
+    }
+  };
+
+  // Eliminar un donante de sangre
+  const handleDeleteBloodDonor = async (id) => {
+    if (!window.confirm('¿Eliminar este donante de la lista?')) return;
+    try {
+      await deleteBloodDonor(id);
+    } catch (err) {
+      alert('Error al eliminar: ' + err.message);
+    }
+  };
+
+  // Enviar solicitud de sangre (hospital)
+  const handleSubmitBloodRequest = async (e) => {
+    e.preventDefault();
+    if (!reqHospital || !reqLocation || !reqCondition || !reqContactName || !reqContactPhone) {
+      alert('Por favor completa todos los campos obligatorios.');
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      await addBloodRequest({
+        bloodType: reqBloodType,
+        urgency: reqUrgency,
+        unitsNeeded: reqUnits,
+        hospitalName: reqHospital,
+        locationName: reqLocation,
+        patientCondition: reqCondition,
+        contactName: reqContactName,
+        contactPhone: reqContactPhone
+      });
+      setReqHospital(''); setReqLocation(''); setReqCondition('');
+      setReqContactName(''); setReqContactPhone('');
+      setIsBloodRequestModalOpen(false);
+      alert('Solicitud de sangre publicada con éxito.');
+    } catch (err) {
+      alert('Error al publicar: ' + err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="app-container">
@@ -400,6 +631,21 @@ export default function App() {
           >
             <MapPin size={18} />
             <span>Mapa Interactivo</span>
+          </button>
+          <button 
+            className={`tab-btn ${activeTab === 'help' ? 'active' : ''}`}
+            onClick={() => setActiveTab('help')}
+          >
+            <Clock size={18} />
+            <span>Tablón de Ayuda</span>
+          </button>
+          <button 
+            className={`tab-btn ${activeTab === 'blood' ? 'active' : ''}`}
+            onClick={() => setActiveTab('blood')}
+            style={activeTab === 'blood' ? { borderColor: '#dc2626', color: '#fca5a5', background: 'rgba(220,38,38,0.12)' } : {}}
+          >
+            <Droplets size={18} />
+            <span>Banco de Sangre</span>
           </button>
           <button 
             className={`tab-btn ${activeTab === 'add' ? 'active' : ''}`}
@@ -695,6 +941,353 @@ export default function App() {
             </div>
           )}
 
+          {/* PESTAÑA: Tablón de Ayuda */}
+          {activeTab === 'help' && (
+            <div className="grid-container-inner">
+              <div className="help-form-toggle-bar">
+                <button 
+                  className="btn btn-primary btn-new-item"
+                  onClick={() => setIsHelpModalOpen(true)}
+                >
+                  <Plus size={16} />
+                  <span>Publicar Anuncio</span>
+                </button>
+              </div>
+
+              {/* Controles de Búsqueda y Filtros */}
+              <div className="grid-header-controls">
+                <div className="search-box">
+                  <Search size={18} className="search-icon" />
+                  <input 
+                    type="text" 
+                    placeholder="Buscar en el tablón (medicinas, camión, etc.)..."
+                    value={helpSearchQuery}
+                    onChange={(e) => setHelpSearchQuery(e.target.value)}
+                  />
+                </div>
+
+                <div className="filter-row">
+                  <button 
+                    className={`filter-btn ${helpTypeFilter === 'all' ? 'active' : ''}`}
+                    onClick={() => setHelpTypeFilter('all')}
+                  >
+                    Todos
+                  </button>
+                  <button 
+                    className={`filter-btn ${helpTypeFilter === 'need' ? 'active' : ''}`}
+                    onClick={() => setHelpTypeFilter('need')}
+                  >
+                    Necesito
+                  </button>
+                  <button 
+                    className={`filter-btn ${helpTypeFilter === 'offer' ? 'active' : ''}`}
+                    onClick={() => setHelpTypeFilter('offer')}
+                  >
+                    Ofrezco
+                  </button>
+                </div>
+              </div>
+
+              {/* Categorías de Ayuda */}
+              <div className="help-categories-filter">
+                <button 
+                  className={`category-chip ${helpCategoryFilter === 'all' ? 'active' : ''}`}
+                  onClick={() => setHelpCategoryFilter('all')}
+                >
+                  <span>Todos</span>
+                </button>
+                <button 
+                  className={`category-chip ${helpCategoryFilter === 'medicines' ? 'active' : ''}`}
+                  onClick={() => setHelpCategoryFilter('medicines')}
+                >
+                  <Activity size={14} />
+                  <span>Medicinas</span>
+                </button>
+                <button 
+                  className={`category-chip ${helpCategoryFilter === 'food_water' ? 'active' : ''}`}
+                  onClick={() => setHelpCategoryFilter('food_water')}
+                >
+                  <Heart size={14} />
+                  <span>Alimentos / Agua</span>
+                </button>
+                <button 
+                  className={`category-chip ${helpCategoryFilter === 'transport' ? 'active' : ''}`}
+                  onClick={() => setHelpCategoryFilter('transport')}
+                >
+                  <Truck size={14} />
+                  <span>Transporte</span>
+                </button>
+                <button 
+                  className={`category-chip ${helpCategoryFilter === 'tools_rescue' ? 'active' : ''}`}
+                  onClick={() => setHelpCategoryFilter('tools_rescue')}
+                >
+                  <ShieldAlert size={14} />
+                  <span>Rescate / Herramientas</span>
+                </button>
+                <button 
+                  className={`category-chip ${helpCategoryFilter === 'shelter' ? 'active' : ''}`}
+                  onClick={() => setHelpCategoryFilter('shelter')}
+                >
+                  <Home size={14} />
+                  <span>Refugio</span>
+                </button>
+                <button 
+                  className={`category-chip ${helpCategoryFilter === 'other' ? 'active' : ''}`}
+                  onClick={() => setHelpCategoryFilter('other')}
+                >
+                  <MessageSquare size={14} />
+                  <span>Otros</span>
+                </button>
+              </div>
+
+              {/* Grid de Anuncios */}
+              <div className="help-grid">
+                {filteredHelpItems.length === 0 ? (
+                  <div className="no-reports">
+                    No se encontraron anuncios que coincidan con los filtros seleccionados.
+                  </div>
+                ) : (
+                  filteredHelpItems.map((item) => (
+                    <div key={item.id} className={`help-card ${item.type}`}>
+                      <div className="help-card-header">
+                        <span className={`help-type-tag ${item.type}`}>
+                          {item.type === 'need' ? 'Necesito' : 'Ofrezco'}
+                        </span>
+                        
+                        {item.urgency === 'critical' && (
+                          <span className="urgency-badge critical">¡Crítico!</span>
+                        )}
+                        {item.urgency === 'medium' && (
+                          <span className="urgency-badge medium">Prioridad Media</span>
+                        )}
+                        {item.urgency === 'low' && (
+                          <span className="urgency-badge low">Bajo</span>
+                        )}
+                      </div>
+
+                      <h3 className="help-card-title">{item.title}</h3>
+                      <p className="help-card-desc">{item.description}</p>
+
+                      <div className="help-card-details">
+                        <div className="help-detail-item">
+                          <MapPin size={14} />
+                          <span>{item.locationName}</span>
+                        </div>
+                        <div className="help-detail-item">
+                          <User size={14} />
+                          <span>Contacto: {item.contactName}</span>
+                        </div>
+                        <div className="help-detail-item">
+                          <Clock size={14} />
+                          <span>{getRelativeTime(item.createdAt)}</span>
+                        </div>
+                      </div>
+
+                      <div className="help-card-actions has-two">
+                        <a href={`tel:${item.contactPhone}`} className="btn-help-action call">
+                          <Phone size={12} />
+                          <span>Llamar</span>
+                        </a>
+                        <a 
+                          href={`https://wa.me/${item.contactPhone.replace(/[^\d]/g, '')}`} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="btn-help-action"
+                          style={{ borderColor: 'rgba(16, 185, 129, 0.3)', color: '#a7f3d0' }}
+                        >
+                          <span>WhatsApp</span>
+                        </a>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* PESTAÑA: Banco de Sangre */}
+          {activeTab === 'blood' && (
+            <div className="grid-container-inner">
+              <div className="blood-bank-layout">
+
+                {/* Hero Banner */}
+                <div className="blood-hero">
+                  <div className="blood-hero-text">
+                    <h2>🩸 Banco de Sangre Urgente</h2>
+                    <p>
+                      Conectamos donantes de sangre con hospitales en tiempo real.
+                      Si puedes donar o tu hospital necesita sangre urgente, actúa ahora.
+                    </p>
+                  </div>
+                  <div className="blood-hero-actions">
+                    <button className="btn btn-donor" onClick={() => setIsBloodDonorModalOpen(true)}>
+                      <Droplets size={16} />
+                      Soy Donante
+                    </button>
+                    <button className="btn btn-request-blood" onClick={() => setIsBloodRequestModalOpen(true)}>
+                      <Hospital size={16} />
+                      Hospital Necesita Sangre
+                    </button>
+                  </div>
+                </div>
+
+                {/* Stats rápidas */}
+                <div className="blood-stats-row">
+                  <div className="blood-stat">
+                    <span className="blood-stat-value red">{bloodRequests.filter(r => r.urgency === 'critical').length}</span>
+                    <span className="blood-stat-label">Solicitudes Críticas</span>
+                  </div>
+                  <div className="blood-stat">
+                    <span className="blood-stat-value red">{bloodRequests.length}</span>
+                    <span className="blood-stat-label">Hospitales Solicitando</span>
+                  </div>
+                  <div className="blood-stat">
+                    <span className="blood-stat-value blue">{bloodDonors.length}</span>
+                    <span className="blood-stat-label">Donantes Registrados</span>
+                  </div>
+                </div>
+
+                {/* Sub-tabs y Filtros */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+                  <div className="blood-sub-nav">
+                    <button
+                      className={`blood-sub-btn ${bloodSubTab === 'requests' ? 'active' : ''}`}
+                      onClick={() => setBloodSubTab('requests')}
+                    >
+                      <BadgeAlert size={16} />
+                      Solicitudes Urgentes ({bloodRequests.length})
+                    </button>
+                    <button
+                      className={`blood-sub-btn donors ${bloodSubTab === 'donors' ? 'active' : ''}`}
+                      onClick={() => setBloodSubTab('donors')}
+                    >
+                      <Droplets size={16} />
+                      Donantes Disponibles ({bloodDonors.length})
+                    </button>
+                  </div>
+                </div>
+
+                {/* Filtro por tipo de sangre */}
+                <div className="blood-type-filter">
+                  <button className={`blood-chip ${bloodTypeFilter === 'all' ? 'active' : ''}`} onClick={() => setBloodTypeFilter('all')}>
+                    Todos
+                  </button>
+                  {BLOOD_TYPES.map(bt => (
+                    <button key={bt} className={`blood-chip ${bloodTypeFilter === bt ? 'active' : ''}`} onClick={() => setBloodTypeFilter(bt)}>
+                      {bt}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Grid de Solicitudes */}
+                {bloodSubTab === 'requests' && (
+                  <div className="blood-grid">
+                    {filteredBloodRequests.length === 0 ? (
+                      <div className="no-reports">No hay solicitudes de sangre activas con los filtros seleccionados.</div>
+                    ) : (
+                      filteredBloodRequests.map(req => (
+                        <div key={req.id} className={`blood-request-card ${req.urgency}`}>
+                          <div className="blood-card-top">
+                            <div className={`blood-type-badge request-type`}>{req.bloodType}</div>
+                            <div className="blood-card-top-info">
+                              <span className={`blood-urgency-tag ${req.urgency}`}>
+                                {req.urgency === 'critical' ? '⚠ CRÍTICO' : req.urgency === 'high' ? 'Alta Prioridad' : 'Media Prioridad'}
+                              </span>
+                              <span className="blood-card-hospital">{req.hospitalName}</span>
+                            </div>
+                          </div>
+
+                          <div className="blood-units-info">
+                            <Syringe size={14} />
+                            <span>Se necesitan <strong>{req.unitsNeeded} unidad{req.unitsNeeded > 1 ? 'es' : ''}</strong> de sangre tipo <strong>{req.bloodType}</strong></span>
+                          </div>
+
+                          <div className="blood-condition">{req.patientCondition}</div>
+
+                          <div className="blood-card-meta">
+                            <div className="blood-meta-item">
+                              <MapPin size={13} />
+                              <span>{req.locationName}</span>
+                            </div>
+                            <div className="blood-meta-item">
+                              <User size={13} />
+                              <span>Contacto: {req.contactName}</span>
+                            </div>
+                            <div className="blood-meta-item">
+                              <Clock size={13} />
+                              <span>{getRelativeTime(req.createdAt)}</span>
+                            </div>
+                          </div>
+
+                          <div className="blood-card-actions">
+                            <a href={`tel:${req.contactPhone}`} className="btn-blood-call">
+                              <Phone size={13} />
+                              Llamar Ahora
+                            </a>
+                            <a href={`https://wa.me/${req.contactPhone.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" className="btn-blood-wa">
+                              WhatsApp
+                            </a>
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                )}
+
+                {/* Grid de Donantes */}
+                {bloodSubTab === 'donors' && (
+                  <div className="blood-grid">
+                    {filteredBloodDonors.length === 0 ? (
+                      <div className="no-reports">No hay donantes registrados con los filtros seleccionados.</div>
+                    ) : (
+                      filteredBloodDonors.map(donor => (
+                        <div key={donor.id} className="blood-donor-card">
+                          <div className="blood-card-top">
+                            <div className="blood-type-badge donor-type">{donor.bloodType}</div>
+                            <div className="blood-card-top-info">
+                              <span className="blood-card-donor-name">{donor.name}</span>
+                              <span style={{ fontSize: '0.78rem', color: donor.available ? '#86efac' : '#fca5a5', fontWeight: '600' }}>
+                                {donor.available ? '✓ Disponible para donar' : 'No disponible en este momento'}
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="blood-card-meta">
+                            <div className="blood-meta-item">
+                              <MapPin size={13} />
+                              <span>{donor.locationName}</span>
+                            </div>
+                            {donor.lastDonation && (
+                              <div className="blood-meta-item">
+                                <Syringe size={13} />
+                                <span>Última donación: {donor.lastDonation}</span>
+                              </div>
+                            )}
+                            <div className="blood-meta-item">
+                              <Clock size={13} />
+                              <span>Registrado {getRelativeTime(donor.createdAt)}</span>
+                            </div>
+                          </div>
+
+                          <div className="blood-card-actions">
+                            <a href={`tel:${donor.phone}`} className="btn-blood-call">
+                              <Phone size={13} />
+                              Llamar
+                            </a>
+                            <a href={`https://wa.me/${donor.phone.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" className="btn-blood-wa">
+                              WhatsApp
+                            </a>
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                )}
+
+              </div>
+            </div>
+          )}
+
           {/* PESTAÑA: Formulario para Reportar Persona */}
           {activeTab === 'add' && (
             <div className="form-layout-container">
@@ -913,6 +1506,282 @@ export default function App() {
           )}
         </section>
       </main>
+
+      {/* MODAL: Publicar Anuncio en el Tablón */}
+      {isHelpModalOpen && (
+        <div className="help-modal-overlay">
+          <div className="help-modal">
+            <div className="help-modal-header">
+              <h2 className="help-modal-title">Publicar en el Tablón</h2>
+              <button 
+                type="button" 
+                className="btn-close-modal"
+                onClick={() => setIsHelpModalOpen(false)}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="help-modal-body">
+              <form onSubmit={handleSubmitHelpItem}>
+                
+                {/* Tipo de Anuncio */}
+                <div className="form-group">
+                  <label>Tipo de Anuncio *</label>
+                  <div className="radio-group">
+                    <label className={`radio-option need ${helpType === 'need' ? 'active' : ''}`}>
+                      <input 
+                        type="radio" 
+                        name="helpType" 
+                        value="need"
+                        checked={helpType === 'need'}
+                        onChange={() => setHelpType('need')}
+                      />
+                      <span>Necesito Apoyo</span>
+                    </label>
+                    <label className={`radio-option offer ${helpType === 'offer' ? 'active' : ''}`}>
+                      <input 
+                        type="radio" 
+                        name="helpType" 
+                        value="offer"
+                        checked={helpType === 'offer'}
+                        onChange={() => setHelpType('offer')}
+                      />
+                      <span>Ofrezco Ayuda</span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Categoría */}
+                <div className="form-group">
+                  <label htmlFor="helpCategory">Categoría *</label>
+                  <select 
+                    id="helpCategory" 
+                    className="form-control"
+                    value={helpCategory}
+                    onChange={(e) => setHelpCategory(e.target.value)}
+                  >
+                    <option value="medicines">Medicinas</option>
+                    <option value="food_water">Alimentos / Agua</option>
+                    <option value="transport">Transporte</option>
+                    <option value="tools_rescue">Rescate / Herramientas</option>
+                    <option value="shelter">Refugio</option>
+                    <option value="other">Otros / General</option>
+                  </select>
+                </div>
+
+                {/* Nivel de Urgencia */}
+                <div className="form-group">
+                  <label htmlFor="helpUrgency">Nivel de Urgencia *</label>
+                  <select 
+                    id="helpUrgency" 
+                    className="form-control"
+                    value={helpUrgency}
+                    onChange={(e) => setHelpUrgency(e.target.value)}
+                  >
+                    <option value="low">Baja (Organización, acopio general)</option>
+                    <option value="medium">Media (Se necesita pronto)</option>
+                    <option value="critical">Crítica (Emergencia inmediata, riesgo vital)</option>
+                  </select>
+                </div>
+
+                {/* Título */}
+                <div className="form-group">
+                  <label htmlFor="helpTitle">Título del Anuncio *</label>
+                  <input 
+                    type="text"
+                    id="helpTitle"
+                    className="form-control"
+                    placeholder="Ej. Se necesita agua mineral o Ofrezco transporte médico"
+                    value={helpTitle}
+                    onChange={(e) => setHelpTitle(e.target.value)}
+                    required
+                  />
+                </div>
+
+                {/* Descripción */}
+                <div className="form-group">
+                  <label htmlFor="helpDescription">Detalles del Anuncio *</label>
+                  <textarea 
+                    id="helpDescription"
+                    className="form-control"
+                    rows="3"
+                    placeholder="Describa a detalle qué necesita u ofrece, cantidades, horarios, etc."
+                    value={helpDescription}
+                    onChange={(e) => setHelpDescription(e.target.value)}
+                    required
+                  ></textarea>
+                </div>
+
+                {/* Lugar de Contacto */}
+                <div className="form-group">
+                  <label htmlFor="helpLocationName">Ubicación / Zona de Contacto *</label>
+                  <input 
+                    type="text"
+                    id="helpLocationName"
+                    className="form-control"
+                    placeholder="Ej. Plaza Altamira, Caracas o Centro de Acopio Maiquetía"
+                    value={helpLocationName}
+                    onChange={(e) => setHelpLocationName(e.target.value)}
+                    required
+                  />
+                </div>
+
+                {/* Nombre de Contacto */}
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="helpContactName">Persona de Contacto *</label>
+                    <input 
+                      type="text"
+                      id="helpContactName"
+                      className="form-control"
+                      placeholder="Ej. Dr. José Rivas"
+                      value={helpContactName}
+                      onChange={(e) => setHelpContactName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="helpContactPhone">Teléfono de Contacto *</label>
+                    <input 
+                      type="text"
+                      id="helpContactPhone"
+                      className="form-control"
+                      placeholder="Ej. +58 412-555-1234"
+                      value={helpContactPhone}
+                      onChange={(e) => setHelpContactPhone(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <button 
+                  type="submit" 
+                  className="btn btn-primary"
+                  disabled={isSubmitting}
+                  style={{ marginTop: '1rem' }}
+                >
+                  {isSubmitting ? 'Publicando...' : 'Publicar Anuncio'}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL: Registro de Donante de Sangre */}
+      {isBloodDonorModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsBloodDonorModalOpen(false)}>
+          <div className="modal-box" onClick={e => e.stopPropagation()} style={{ maxWidth: '520px' }}>
+            <div className="modal-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <span style={{ fontSize: '1.75rem' }}>🩸</span>
+                <div>
+                  <h3 className="modal-title">Registrarme como Donante</h3>
+                  <p style={{ fontSize: '0.82rem', color: 'hsl(var(--text-secondary))', margin: 0 }}>Tu donación puede salvar una vida hoy</p>
+                </div>
+              </div>
+              <button className="modal-close-btn" onClick={() => setIsBloodDonorModalOpen(false)}><X size={20}/></button>
+            </div>
+            <form onSubmit={handleSubmitDonor} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div className="form-group">
+                <label className="form-label">Tipo de Sangre *</label>
+                <select className="form-select" value={donorBloodType} onChange={e => setDonorBloodType(e.target.value)}>
+                  {BLOOD_TYPES.map(bt => <option key={bt} value={bt}>{bt}</option>)}
+                </select>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Nombre Completo *</label>
+                <input className="form-input" placeholder="Tu nombre" value={donorName} onChange={e => setDonorName(e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Teléfono de Contacto *</label>
+                <input className="form-input" placeholder="+58 412-XXX-XXXX" value={donorPhone} onChange={e => setDonorPhone(e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Zona donde te encuentras *</label>
+                <input className="form-input" placeholder="Ej: Catia, Caracas" value={donorLocation} onChange={e => setDonorLocation(e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Fecha de última donación (si recuerdas)</label>
+                <input className="form-input" type="date" value={donorLastDonation} onChange={e => setDonorLastDonation(e.target.value)} />
+              </div>
+              <div style={{ fontSize: '0.8rem', color: 'hsl(var(--text-muted))', background: 'rgba(59,130,246,0.08)', padding: '0.75rem', borderRadius: '8px', borderLeft: '3px solid hsl(var(--color-primary))' }}>
+                ⚠ Recuerda que debes esperar mínimo 56 días entre donaciones y estar en buen estado de salud.
+              </div>
+              <button type="submit" className="btn btn-primary" disabled={isSubmitting} style={{ marginTop: '0.5rem', background: '#dc2626' }}>
+                {isSubmitting ? 'Registrando...' : '🩸 Registrarme como Donante'}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL: Solicitud de Sangre (Hospitales) */}
+      {isBloodRequestModalOpen && (
+        <div className="modal-overlay" onClick={() => setIsBloodRequestModalOpen(false)}>
+          <div className="modal-box" onClick={e => e.stopPropagation()} style={{ maxWidth: '580px' }}>
+            <div className="modal-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <span style={{ fontSize: '1.75rem' }}>🏥</span>
+                <div>
+                  <h3 className="modal-title">Publicar Solicitud Urgente de Sangre</h3>
+                  <p style={{ fontSize: '0.82rem', color: 'hsl(var(--text-secondary))', margin: 0 }}>Para hospitales y centros de salud</p>
+                </div>
+              </div>
+              <button className="modal-close-btn" onClick={() => setIsBloodRequestModalOpen(false)}><X size={20}/></button>
+            </div>
+            <form onSubmit={handleSubmitBloodRequest} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-group">
+                  <label className="form-label">Tipo de Sangre Necesario *</label>
+                  <select className="form-select" value={reqBloodType} onChange={e => setReqBloodType(e.target.value)}>
+                    {BLOOD_TYPES.map(bt => <option key={bt} value={bt}>{bt}</option>)}
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Nivel de Urgencia *</label>
+                  <select className="form-select" value={reqUrgency} onChange={e => setReqUrgency(e.target.value)}>
+                    <option value="critical">⚠ Crítico (Cirugía activa)</option>
+                    <option value="high">Alta (Próximas horas)</option>
+                    <option value="medium">Media (Próximas 24h)</option>
+                  </select>
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Unidades Necesarias *</label>
+                <input className="form-input" type="number" min="1" max="20" value={reqUnits} onChange={e => setReqUnits(e.target.value)} />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Hospital / Centro de Salud *</label>
+                <input className="form-input" placeholder="Nombre completo del hospital" value={reqHospital} onChange={e => setReqHospital(e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Dirección / Zona *</label>
+                <input className="form-input" placeholder="Ej: El Paraíso, Caracas" value={reqLocation} onChange={e => setReqLocation(e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Descripción del Caso *</label>
+                <textarea className="form-input" rows={3} placeholder="Describe brevemente la situación del paciente o la urgencia clínica..." value={reqCondition} onChange={e => setReqCondition(e.target.value)} required style={{ resize: 'vertical' }} />
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-group">
+                  <label className="form-label">Nombre del Responsable *</label>
+                  <input className="form-input" placeholder="Dr. / Enfermero..." value={reqContactName} onChange={e => setReqContactName(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Teléfono de Contacto *</label>
+                  <input className="form-input" placeholder="+58 212-XXX-XXXX" value={reqContactPhone} onChange={e => setReqContactPhone(e.target.value)} required />
+                </div>
+              </div>
+              <button type="submit" className="btn btn-primary" disabled={isSubmitting} style={{ marginTop: '0.5rem', background: '#dc2626' }}>
+                {isSubmitting ? 'Publicando...' : '🏥 Publicar Solicitud Urgente'}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

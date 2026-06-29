@@ -1053,3 +1053,880 @@ body {
     width: 100% !important;
   }
 }
+
+/* ==========================================
+   ESTILOS DE LA SECCIÓN: TABLÓN DE ANUNCIOS (HELP BOARD)
+   ========================================== */
+
+.help-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.help-categories-filter {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  scrollbar-width: thin;
+}
+
+.help-categories-filter::-webkit-scrollbar {
+  height: 4px;
+}
+
+.help-categories-filter::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.category-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: hsl(var(--text-secondary));
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+
+.category-chip:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.category-chip.active {
+  background: hsl(var(--color-primary));
+  border-color: hsl(var(--color-primary-hover));
+  color: white;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.25);
+}
+
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.help-card {
+  background-color: hsl(var(--bg-card));
+  border: 1.5px solid hsl(var(--border-color));
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  transition: var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.help-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Bordes identificativos de Tipo */
+.help-card.need {
+  border-left: 5px solid #ef4444; /* Naranja/Rojo para necesidad */
+}
+
+.help-card.offer {
+  border-left: 5px solid #10b981; /* Verde esmeralda para oferta */
+}
+
+.help-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.help-card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+}
+
+.help-type-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.help-type-tag.need {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.help-type-tag.offer {
+  background: rgba(16, 185, 129, 0.15);
+  color: #a7f3d0;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.urgency-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.urgency-badge.critical {
+  background: rgba(153, 27, 27, 0.8);
+  color: #fecaca;
+  animation: pulse-red 2s infinite;
+}
+
+.urgency-badge.medium {
+  background: rgba(194, 65, 12, 0.8);
+  color: #ffedd5;
+}
+
+.urgency-badge.low {
+  background: rgba(71, 85, 105, 0.8);
+  color: #e2e8f0;
+}
+
+.help-card-desc {
+  font-size: 0.85rem;
+  color: hsl(var(--text-secondary));
+  line-height: 1.5;
+  flex: 1;
+}
+
+.help-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: hsl(var(--text-muted));
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.8rem;
+}
+
+.help-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.help-detail-item svg {
+  flex-shrink: 0;
+  color: hsl(var(--text-muted));
+}
+
+.help-card-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.help-card-actions.has-two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.btn-help-action {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  height: auto;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.btn-help-action:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-help-action.call {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+
+.btn-help-action.call:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+/* Modal o Formulario de Registro de Ayuda */
+.help-form-toggle-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.btn-new-item {
+  width: auto;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.help-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.help-modal {
+  background-color: hsl(var(--bg-card));
+  border: 1px solid hsl(var(--border-color));
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.help-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.help-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  color: hsl(var(--text-muted));
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-close-modal:hover {
+  color: white;
+}
+
+.help-modal-body {
+  padding: 1.5rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.radio-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid hsl(var(--border-color));
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: hsl(var(--text-secondary));
+  transition: var(--transition-fast);
+}
+
+.radio-option input {
+  display: none;
+}
+
+.radio-option.active.need {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+  color: #fca5a5;
+}
+
+.radio-option.active.offer {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  color: #a7f3d0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   BANCO DE SANGRE URGENTE
+   ========================================== */
+
+.blood-bank-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Sub-tabs internas (Solicitudes / Donantes) */
+.blood-sub-nav {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0,0,0,0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem;
+  width: fit-content;
+}
+
+.blood-sub-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: hsl(var(--text-secondary));
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.blood-sub-btn.active {
+  background: #dc2626;
+  color: white;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.blood-sub-btn.active.donors {
+  background: hsl(var(--color-primary));
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Blood Type Filter Chips */
+.blood-type-filter {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.blood-chip {
+  padding: 0.35rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border: 2px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: hsl(var(--text-secondary));
+  cursor: pointer;
+  transition: var(--transition-fast);
+  letter-spacing: 0.03em;
+}
+
+.blood-chip:hover {
+  border-color: rgba(220,38,38,0.5);
+  color: #fca5a5;
+}
+
+.blood-chip.active {
+  background: rgba(220, 38, 38, 0.2);
+  border-color: #dc2626;
+  color: #fca5a5;
+}
+
+/* Grid de Solicitudes y Donantes */
+.blood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjeta de SOLICITUD de sangre */
+.blood-request-card {
+  background: hsl(var(--bg-card));
+  border: 1.5px solid rgba(220, 38, 38, 0.25);
+  border-left: 5px solid #dc2626;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: var(--transition-fast);
+}
+
+.blood-request-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.15);
+}
+
+.blood-request-card.critical {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.2);
+  animation: pulse-blood 2.5s infinite;
+}
+
+@keyframes pulse-blood {
+  0%   { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.35); }
+  70%  { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+/* Tarjeta de DONANTE */
+.blood-donor-card {
+  background: hsl(var(--bg-card));
+  border: 1.5px solid rgba(59, 130, 246, 0.2);
+  border-left: 5px solid hsl(var(--color-primary));
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: var(--transition-fast);
+}
+
+.blood-donor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
+}
+
+/* Badge del tipo de sangre (grande, prominente) */
+.blood-type-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  flex-shrink: 0;
+}
+
+.blood-type-badge.request-type {
+  background: rgba(220, 38, 38, 0.15);
+  border: 2px solid rgba(220, 38, 38, 0.4);
+  color: #fca5a5;
+}
+
+.blood-type-badge.donor-type {
+  background: rgba(59, 130, 246, 0.15);
+  border: 2px solid rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+}
+
+.blood-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.blood-card-top-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.blood-card-hospital {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+}
+
+.blood-card-donor-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.blood-urgency-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  width: fit-content;
+}
+
+.blood-urgency-tag.critical {
+  background: rgba(220, 38, 38, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(220, 38, 38, 0.4);
+}
+
+.blood-urgency-tag.high {
+  background: rgba(234, 88, 12, 0.2);
+  color: #fdba74;
+  border: 1px solid rgba(234, 88, 12, 0.3);
+}
+
+.blood-urgency-tag.medium {
+  background: rgba(234, 179, 8, 0.15);
+  color: #fde047;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.blood-units-info {
+  font-size: 0.82rem;
+  color: hsl(var(--text-secondary));
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.blood-condition {
+  font-size: 0.82rem;
+  color: hsl(var(--text-secondary));
+  line-height: 1.5;
+  padding: 0.6rem 0.75rem;
+  background: rgba(220, 38, 38, 0.06);
+  border-radius: 6px;
+  border-left: 3px solid rgba(220, 38, 38, 0.3);
+}
+
+.blood-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: hsl(var(--text-muted));
+}
+
+.blood-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.blood-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.btn-blood-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #fca5a5;
+}
+
+.btn-blood-call:hover {
+  background: rgba(220, 38, 38, 0.28);
+}
+
+.btn-blood-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-fast);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #a7f3d0;
+}
+
+.btn-blood-wa:hover {
+  background: rgba(16, 185, 129, 0.22);
+}
+
+/* Hero CTA superior del banco de sangre */
+.blood-hero {
+  background: linear-gradient(135deg, rgba(185, 28, 28, 0.3) 0%, rgba(30, 27, 40, 0.6) 100%);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.blood-hero-text h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.4rem;
+}
+
+.blood-hero-text p {
+  font-size: 0.9rem;
+  color: hsl(var(--text-secondary));
+  max-width: 460px;
+  line-height: 1.5;
+}
+
+.blood-hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-donor {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  width: auto;
+  background: hsl(var(--color-primary));
+  color: white;
+  border: none;
+}
+
+.btn-donor:hover {
+  background: hsl(var(--color-primary-hover));
+}
+
+.btn-request-blood {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  width: auto;
+  background: #dc2626;
+  color: white;
+  border: none;
+}
+
+.btn-request-blood:hover {
+  background: #b91c1c;
+}
+
+.btn-blood-delete {
+  margin-left: auto;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #f87171;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.55rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.btn-blood-delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #ffffff;
+}
+
+/* Stats de sangre */
+.blood-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.blood-stat {
+  background: hsl(var(--bg-card));
+  border: 1px solid hsl(var(--border-color));
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.blood-stat-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+}
+
+.blood-stat-value.red { color: #f87171; }
+.blood-stat-value.blue { color: #93c5fd; }
+
+.blood-stat-label {
+  font-size: 0.75rem;
+  color: hsl(var(--text-muted));
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive blood bank */
+@media (max-width: 768px) {
+  .blood-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem;
+  }
+
+  .blood-stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blood-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modales del Banco de Sangre */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 1rem;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-box {
+  background-color: hsl(var(--bg-card));
+  border: 1px solid hsl(var(--border-color));
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+  position: relative;
+  animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 1rem;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: hsl(var(--text-muted));
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 50%;
+}
+
+.modal-close-btn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Clases de Formulario para Modales */
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: hsl(var(--text-secondary));
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: hsl(var(--bg-input));
+  border: 1.5px solid hsl(var(--border-color));
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: hsl(var(--border-focus));
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Keyframes de animación */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
