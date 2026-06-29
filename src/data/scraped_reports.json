@@ -1,0 +1,902 @@
+[
+  {
+    "name": "Juan Carlos Baena Airut",
+    "age": 55,
+    "status": "safe",
+    "locationName": "Los Corales La Guaira — La Guaira, Vargas, La Guaira",
+    "description": "55 años de edad. Visto por última vez en Los Corales La Guaira — La Guaira, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p5a434d9b596e.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Paola Salazar",
+    "age": 1,
+    "status": "missing",
+    "locationName": "Vargas, La Guaira",
+    "description": "1 años de edad. Visto por última vez en Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pe03598cfabe0.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Antonio Marin",
+    "age": 38,
+    "status": "missing",
+    "locationName": "Catia La Mar, Vargas, La Guaira",
+    "description": "38 años de edad. Visto por última vez en Catia La Mar, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p4d531b7a76bd.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Gregorio Miyan Gómez",
+    "age": 9,
+    "status": "safe",
+    "locationName": "Playa bahía de los niños, carballeda,la guaira — La Guaira, Vargas, La Guaira",
+    "description": "9 años de edad. Visto por última vez en Playa bahía de los niños, carballeda,la guaira — La Guaira, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p79206ae8500a.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "MIARA JANENES",
+    "age": 45,
+    "status": "safe",
+    "locationName": "(Nombre en Lista) Periférico de Catia — Libertador, Distrito Capital",
+    "description": "45 años de edad. Visto por última vez en (Nombre en Lista) Periférico de Catia — Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "JHONNY JOSE ROSALES BRACAMONTE",
+    "age": null,
+    "status": "safe",
+    "locationName": "PUERTO VIEJO, LA GUAIRA — La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en PUERTO VIEJO, LA GUAIRA — La Guaira, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pc4ed6b812fae.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "natalie morales",
+    "age": 40,
+    "status": "missing",
+    "locationName": "Residencia oppe tanaguarenas torre g",
+    "description": "40 años de edad. Visto por última vez en Residencia oppe tanaguarenas torre g el 25 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/paeb8f10d48c3.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Mónica Santander",
+    "age": 50,
+    "status": "safe",
+    "locationName": "Caracas",
+    "description": "50 años de edad. Visto por última vez en Caracas el 26 feb 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p6d2c73dd2e6f.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Angely Mayerlinny Aparcedo Reyes",
+    "age": 40,
+    "status": "missing",
+    "locationName": "En la opp26 caribe — Caraballeda, Vargas, La Guaira",
+    "description": "40 años de edad. Visto por última vez en En la opp26 caribe — Caraballeda, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p9a84dbb3721a.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Héctor noe colina castro",
+    "age": 84,
+    "status": "missing",
+    "locationName": "Catia la mar edf vistamar — Catia La Mar, Vargas, La Guaira",
+    "description": "84 años de edad. Visto por última vez en Catia la mar edf vistamar — Catia La Mar, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p4ef1dfd644de.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Aaron Alexandra lafond Mohamed",
+    "age": null,
+    "status": "missing",
+    "locationName": "Opppe26, Calle La Playa, Caraballeda 1165, La Guaira, Venezuela — Vargas, La Guaira",
+    "description": "Visto por última vez en Opppe26, Calle La Playa, Caraballeda 1165, La Guaira, Venezuela — Vargas, La Guaira el 29 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p8706ed3b6b54.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Khaled José morales echezuria y roneiker Manuel Pérez echezuria",
+    "age": null,
+    "status": "missing",
+    "locationName": "Vargas, La Guaira",
+    "description": "Visto por última vez en Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Aminta Mayelis Mayelis Loyo",
+    "age": 48,
+    "status": "missing",
+    "locationName": ",Calle La Playa, Caraballeda 1165, La Guaira, Venezuela — Vargas, La Guaira",
+    "description": "48 años de edad. Visto por última vez en ,Calle La Playa, Caraballeda 1165, La Guaira, Venezuela — Vargas, La Guaira el 29 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Albanys Frank Escobar Monasterios",
+    "age": 19,
+    "status": "missing",
+    "locationName": "Caribe edificio de la opp26 — Caraballeda, Vargas, La Guaira",
+    "description": "19 años de edad. Visto por última vez en Caribe edificio de la opp26 — Caraballeda, Vargas, La Guaira el 29 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p8ffa72496473.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "MELBIS GONZALEZ",
+    "age": 73,
+    "status": "missing",
+    "locationName": "Edf. Rita Palace, los corales — La Guaira, Vargas, La Guaira",
+    "description": "73 años de edad. Visto por última vez en Edf. Rita Palace, los corales — La Guaira, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p952df9d9db7f.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Matías Brazon",
+    "age": 8,
+    "status": "missing",
+    "locationName": "Recidencial Maribel — Caraballeda, Vargas, La Guaira",
+    "description": "8 años de edad. Visto por última vez en Recidencial Maribel — Caraballeda, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p5c8d1b6df2da.jpg",
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Jose Lopez",
+    "age": 61,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "61 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:14:57.441Z"
+  },
+  {
+    "name": "Jose Yamileth parra Gonzalez",
+    "age": 75,
+    "status": "missing",
+    "locationName": "Caraballeda, Vargas, La Guaira",
+    "description": "75 años de edad. Visto por última vez en Caraballeda, Vargas, La Guaira el 29 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p72a1cc45a9c0.jpg",
+    "createdAt": "2026-06-29T15:14:57.442Z"
+  },
+  {
+    "name": "Thiago Piñera",
+    "age": 7,
+    "status": "missing",
+    "locationName": "Vargas, La Guaira",
+    "description": "7 años de edad. Visto por última vez en Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:14:57.442Z"
+  },
+  {
+    "name": "Sackson Pierre",
+    "age": 48,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "48 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:14:57.442Z"
+  },
+  {
+    "name": "Doraimn RORAIMA Carnero GARCIA",
+    "age": 26,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "26 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Keiter Castillo",
+    "age": 30,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "30 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Yohany Chacon",
+    "age": 35,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "35 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Adrian Hurtado",
+    "age": null,
+    "status": "safe",
+    "locationName": "CENTRO DE ACOPIO DE LA GUAIRA CAMPO DE GOLF — La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en CENTRO DE ACOPIO DE LA GUAIRA CAMPO DE GOLF — La Guaira, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Mariela Perla Rosa Vasquez Caldera",
+    "age": 56,
+    "status": "missing",
+    "locationName": "6805 Summerset Ct — Vargas, La Guaira",
+    "description": "56 años de edad. Visto por última vez en 6805 Summerset Ct — Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Sarayú De las mercedes perez Ascanio",
+    "age": 6,
+    "status": "missing",
+    "locationName": "Tanaguarenas opp 25 — Vargas, La Guaira",
+    "description": "6 años de edad. Visto por última vez en Tanaguarenas opp 25 — Vargas, La Guaira el 29 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p8a905cc47568.jpg",
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "ROSDAIRY GRATEROL ORAMAS",
+    "age": 43,
+    "status": "safe",
+    "locationName": "Caraballeda, Vargas, La Guaira",
+    "description": "43 años de edad. Visto por última vez en Caraballeda, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pfd65d78bf1af.jpg",
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "MERO MARIELA",
+    "age": 44,
+    "status": "safe",
+    "locationName": "(Nombre en Lista) Periférico de Catia — Libertador, Distrito Capital",
+    "description": "44 años de edad. Visto por última vez en (Nombre en Lista) Periférico de Catia — Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Osiris dela motta",
+    "age": 58,
+    "status": "safe",
+    "locationName": "El guaira",
+    "description": "58 años de edad. Visto por última vez en El guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p995b2c0e8743.jpg",
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Francisco José gamboa brandt",
+    "age": 54,
+    "status": "safe",
+    "locationName": "Playa grande",
+    "description": "54 años de edad. Visto por última vez en Playa grande el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p29152ccab470.jpg",
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Ninoska Vetencourt",
+    "age": 55,
+    "status": "safe",
+    "locationName": "Los Corales — Vargas, La Guaira",
+    "description": "55 años de edad. Visto por última vez en Los Corales — Vargas, La Guaira el 28 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p764aa69e8426.jpg",
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Francisco Jose Gamboa Brantd",
+    "age": 54,
+    "status": "safe",
+    "locationName": "Puente la llanada, coliseo caraballeda — Caraballeda, Vargas, La Guaira",
+    "description": "54 años de edad. Visto por última vez en Puente la llanada, coliseo caraballeda — Caraballeda, Vargas, La Guaira el 27 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pca706487a660.jpg",
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "MIGUEL ANEZ",
+    "age": 57,
+    "status": "safe",
+    "locationName": "(Nombre en Lista) Periférico de Catia — Libertador, Distrito Capital",
+    "description": "57 años de edad. Visto por última vez en (Nombre en Lista) Periférico de Catia — Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Gneibelin López",
+    "age": 20,
+    "status": "safe",
+    "locationName": "Catia La Mar — Vargas, La Guaira",
+    "description": "20 años de edad. Visto por última vez en Catia La Mar — Vargas, La Guaira el 28 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pc152ce9d1f77.jpg",
+    "createdAt": "2026-06-29T15:15:00.319Z"
+  },
+  {
+    "name": "Jose Manuel Zerpa Guerra",
+    "age": 75,
+    "status": "missing",
+    "locationName": "Residencias Hoyo 2 Caraballeda Estado La Guaira, Profesor de la UCV — Caraballeda, Vargas, La Guaira",
+    "description": "75 años de edad. Visto por última vez en Residencias Hoyo 2 Caraballeda Estado La Guaira, Profesor de la UCV — Caraballeda, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p4d4448952647.jpg",
+    "createdAt": "2026-06-29T15:15:00.320Z"
+  },
+  {
+    "name": "Alberto Querales",
+    "age": null,
+    "status": "safe",
+    "locationName": "Cercs del areopuerto de mauquetia",
+    "description": "Visto por última vez en Cercs del areopuerto de mauquetia el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pa93b97cc79a6.jpg",
+    "createdAt": "2026-06-29T15:15:00.320Z"
+  },
+  {
+    "name": "Anabella Dávila",
+    "age": 13,
+    "status": "safe",
+    "locationName": "Los Corales — Vargas, La Guaira",
+    "description": "13 años de edad. Visto por última vez en Los Corales — Vargas, La Guaira el 28 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pec4d29ef8d06.jpg",
+    "createdAt": "2026-06-29T15:15:00.320Z"
+  },
+  {
+    "name": "Alberto Querales",
+    "age": null,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en La Guaira, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pc9d8ead29a79.jpg",
+    "createdAt": "2026-06-29T15:15:00.320Z"
+  },
+  {
+    "name": "Rosibel Dewuentt",
+    "age": 27,
+    "status": "safe",
+    "locationName": "Caribe — Vargas, La Guaira",
+    "description": "27 años de edad. Visto por última vez en Caribe — Vargas, La Guaira el 28 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pb7bfc88eef00.jpg",
+    "createdAt": "2026-06-29T15:15:00.320Z"
+  },
+  {
+    "name": "Alberto Querales",
+    "age": 55,
+    "status": "safe",
+    "locationName": "Cerca del aeropuerto de Maquetia",
+    "description": "55 años de edad. Visto por última vez en Cerca del aeropuerto de Maquetia el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p98006edcf559.jpg",
+    "createdAt": "2026-06-29T15:15:00.320Z"
+  },
+  {
+    "name": "Asheley veliz",
+    "age": 19,
+    "status": "safe",
+    "locationName": "Caribe — Vargas, La Guaira",
+    "description": "19 años de edad. Visto por última vez en Caribe — Vargas, La Guaira el 28 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p71371feca749.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Yoleida Oropeza",
+    "age": 60,
+    "status": "safe",
+    "locationName": "Caraballeda sector quebrada seca — Caraballeda, Vargas, La Guaira",
+    "description": "60 años de edad. Visto por última vez en Caraballeda sector quebrada seca — Caraballeda, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p94395b051eac.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Ender Ollarve",
+    "age": 16,
+    "status": "safe",
+    "locationName": "Naiguatá — Vargas, La Guaira",
+    "description": "16 años de edad. Visto por última vez en Naiguatá — Vargas, La Guaira el 28 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p120f15dfac73.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Daviexis Alejandra Monterolla Moreno",
+    "age": 18,
+    "status": "missing",
+    "locationName": "App 26 lo cocos — Naiguatá, Vargas, La Guaira",
+    "description": "18 años de edad. Visto por última vez en App 26 lo cocos — Naiguatá, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pe44c608f374d.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Ruben Gil",
+    "age": null,
+    "status": "safe",
+    "locationName": "Vargas, La Guaira",
+    "description": "Visto por última vez en Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Alfonso Rondon Nuñez",
+    "age": null,
+    "status": "safe",
+    "locationName": "Resd Caribe — Caraballeda, Vargas, La Guaira",
+    "description": "Visto por última vez en Resd Caribe — Caraballeda, Vargas, La Guaira el 27 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p482b837cea01.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Pedro Merentes",
+    "age": 23,
+    "status": "safe",
+    "locationName": "El es de Caraballeda — Caraballeda, Vargas, La Guaira",
+    "description": "23 años de edad. Visto por última vez en El es de Caraballeda — Caraballeda, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p0acbbb4e4543.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "MAITE RAMIREZ HERNANDEZ",
+    "age": null,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en La Guaira, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Teresa farias",
+    "age": 71,
+    "status": "safe",
+    "locationName": "Vargas, La Guaira",
+    "description": "71 años de edad. Visto por última vez en Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "camila andrea salas albarran",
+    "age": null,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en La Guaira, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "andres david micles torres",
+    "age": null,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en La Guaira, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Maria Angela Salazar Muñoz",
+    "age": 84,
+    "status": "missing",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "84 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p655160fd929a.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Luisamer Guillen Andrade",
+    "age": 17,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "17 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p97d790026e91.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Stevez Mora Johnson",
+    "age": 24,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "24 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p8bb5da5c7ffa.jpg",
+    "createdAt": "2026-06-29T15:15:02.888Z"
+  },
+  {
+    "name": "Alberto Rafael boada caldera",
+    "age": 70,
+    "status": "missing",
+    "locationName": "Sector cementerio — Vargas, La Guaira",
+    "description": "70 años de edad. Visto por última vez en Sector cementerio — Vargas, La Guaira el 29 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p49a3f28b0044.jpg",
+    "createdAt": "2026-06-29T15:15:02.889Z"
+  },
+  {
+    "name": "David Melivier",
+    "age": 24,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "24 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p5016c9db2885.jpg",
+    "createdAt": "2026-06-29T15:15:02.889Z"
+  },
+  {
+    "name": "DIMIAXIS EVELYN MORENO GASCON",
+    "age": null,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en La Guaira, Vargas, La Guaira el 27 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:02.889Z"
+  },
+  {
+    "name": "Juan Gil",
+    "age": 67,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "67 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p30c5f7f51bf7.jpg",
+    "createdAt": "2026-06-29T15:15:02.889Z"
+  },
+  {
+    "name": "Celestino Cid",
+    "age": 37,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "37 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pcde535322318.jpg",
+    "createdAt": "2026-06-29T15:15:02.889Z"
+  },
+  {
+    "name": "Brayan Montañez",
+    "age": 25,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "25 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:02.889Z"
+  },
+  {
+    "name": "Omar Alejandro Martinez Salinas",
+    "age": 22,
+    "status": "safe",
+    "locationName": "El Cojo, Macuto, La Guaira — La Guaira, Vargas, La Guaira",
+    "description": "22 años de edad. Visto por última vez en El Cojo, Macuto, La Guaira — La Guaira, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p3fe1b2c0b11b.jpg",
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Hector Caripe",
+    "age": 27,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "27 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Luz Agudilo",
+    "age": 75,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "75 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pe328aecd0c29.jpg",
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Johnny Lucayo",
+    "age": 73,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "73 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "JONATHAN ROJAS GARCIA",
+    "age": null,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en La Guaira, Vargas, La Guaira el 27 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Franklin Chacon",
+    "age": 29,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "29 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Juan Mishel Osorio Osorio",
+    "age": 64,
+    "status": "missing",
+    "locationName": "Se busca en Catia La Mar o en Petare. — Catia La Mar, Vargas, La Guaira",
+    "description": "64 años de edad. Visto por última vez en Se busca en Catia La Mar o en Petare. — Catia La Mar, Vargas, La Guaira el 29 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Ana Briceño",
+    "age": 72,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "72 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pf39e42baa31a.jpg",
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Marcos Hernández",
+    "age": 52,
+    "status": "missing",
+    "locationName": "Cara",
+    "description": "52 años de edad. Visto por última vez en Cara el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pade9cd431686.jpg",
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Jorge Antonio Vites Salazar",
+    "age": 62,
+    "status": "missing",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "62 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pd6009c7c7f21.jpg",
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Yadira Blanco",
+    "age": 66,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "66 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p6c659c41a5e5.jpg",
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Amarilys Franco",
+    "age": 68,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "68 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pb51988bb4078.jpg",
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Jose Rodriguez",
+    "age": 90,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "90 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Maikool Olivares",
+    "age": 27,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "27 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "José Gómez",
+    "age": 75,
+    "status": "safe",
+    "locationName": "Libertador, Distrito Capital",
+    "description": "75 años de edad. Visto por última vez en Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Sandi Marcano",
+    "age": null,
+    "status": "safe",
+    "locationName": "Ubicación no indicada",
+    "description": "Visto por última vez en Ubicación no indicada el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p1aabd7390329.jpg",
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Ismael Ramos",
+    "age": 50,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "50 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Kelismar Narvaez (Menor)",
+    "age": null,
+    "status": "safe",
+    "locationName": "Hay una Kelismar Narvaez en el CENTRO DE ACOPIO DE LA GUAIRA CAMPO DE GOLF — La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en Hay una Kelismar Narvaez en el CENTRO DE ACOPIO DE LA GUAIRA CAMPO DE GOLF — La Guaira, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Hector Jose escalona fuentes",
+    "age": 25,
+    "status": "safe",
+    "locationName": "Edificio los bucaneros",
+    "description": "25 años de edad. Visto por última vez en Edificio los bucaneros el 24 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Yorman Cardenas",
+    "age": 44,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "44 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:05.519Z"
+  },
+  {
+    "name": "Amir Petini",
+    "age": 20,
+    "status": "missing",
+    "locationName": "Caracas — Libertador, Distrito Capital",
+    "description": "20 años de edad. Visto por última vez en Caracas — Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p009d11a00329.jpg",
+    "createdAt": "2026-06-29T15:15:08.658Z"
+  },
+  {
+    "name": "Doris Ingrid Iriarte H.",
+    "age": null,
+    "status": "missing",
+    "locationName": "Macuto, Vargas, La Guaira",
+    "description": "Visto por última vez en Macuto, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pb701ed242d34.jpg",
+    "createdAt": "2026-06-29T15:15:08.658Z"
+  },
+  {
+    "name": "Olivia De La Caridad Hernández Pérez",
+    "age": 28,
+    "status": "missing",
+    "locationName": "Coral Park Caraballeda La Guaira — Caraballeda, Vargas, La Guaira",
+    "description": "28 años de edad. Visto por última vez en Coral Park Caraballeda La Guaira — Caraballeda, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p79ea5b7dbb45.jpg",
+    "createdAt": "2026-06-29T15:15:08.658Z"
+  },
+  {
+    "name": "Silvio Rene Garzon Molina",
+    "age": 36,
+    "status": "missing",
+    "locationName": "Apartamento de Playa En los Corales - La Guairá Caraballeda — Caraballeda, Vargas, La Guaira",
+    "description": "36 años de edad. Visto por última vez en Apartamento de Playa En los Corales - La Guairá Caraballeda — Caraballeda, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pa606c14c28c4.jpg",
+    "createdAt": "2026-06-29T15:15:08.658Z"
+  },
+  {
+    "name": "Angel Sebastián Guarán Guanipa",
+    "age": 8,
+    "status": "safe",
+    "locationName": "Maiquetía, Vargas, La Guaira",
+    "description": "8 años de edad. Visto por última vez en Maiquetía, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:08.658Z"
+  },
+  {
+    "name": "Héctor José Escalona fuentes",
+    "age": 25,
+    "status": "safe",
+    "locationName": "Catia",
+    "description": "25 años de edad. Visto por última vez en Catia el 24 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:08.658Z"
+  },
+  {
+    "name": "Carlos Rojas",
+    "age": 41,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "41 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:08.658Z"
+  },
+  {
+    "name": "Héctor Escalona",
+    "age": 22,
+    "status": "safe",
+    "locationName": "Av. Ppal de Playa Grande, Catia la Mar. Edificio los Bucaneros — Catia La Mar, Vargas, La Guaira",
+    "description": "22 años de edad. Visto por última vez en Av. Ppal de Playa Grande, Catia la Mar. Edificio los Bucaneros — Catia La Mar, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pc0167df67145.jpg",
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "kelyerirey nunez alvarez",
+    "age": null,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en La Guaira, Vargas, La Guaira el 27 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Daniel Palacios (padre)Helena Mendez (madre) Daniel palacios(hijo mayor) Francisco Palacios (hijo menor)",
+    "age": null,
+    "status": "missing",
+    "locationName": "Tambores de San Juan y los cocos la guaira — La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en Tambores de San Juan y los cocos la guaira — La Guaira, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pa1fa59da64e2.jpg",
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Leydy Perez",
+    "age": 65,
+    "status": "safe",
+    "locationName": "Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital",
+    "description": "65 años de edad. Visto por última vez en Urbanizacion La Yaguara, Sector Bella Vista, Parroquia El Paraiso — El Paraíso, Libertador, Distrito Capital el Fecha no indicada.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Yuletzis Alejandra Milano",
+    "age": 29,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "29 años de edad. Visto por última vez en La Guaira, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "luis german otero salcedo",
+    "age": null,
+    "status": "safe",
+    "locationName": "La Guaira, Vargas, La Guaira",
+    "description": "Visto por última vez en La Guaira, Vargas, La Guaira el 27 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Nayleth Santos",
+    "age": null,
+    "status": "missing",
+    "locationName": "Catia La Mar, Vargas, La Guaira",
+    "description": "Visto por última vez en Catia La Mar, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pab90c2d024e9.jpg",
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "armando Placencio jose medina",
+    "age": 50,
+    "status": "missing",
+    "locationName": "se encuentra en el listado del hospital MIGUEL PEREZ CARREÑO publicado por instagram fabibalza — Caraballeda, Vargas, La Guaira",
+    "description": "50 años de edad. Visto por última vez en se encuentra en el listado del hospital MIGUEL PEREZ CARREÑO publicado por instagram fabibalza — Caraballeda, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p820e3c0e1aad.jpg",
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Loreany Galindez (Menor)",
+    "age": null,
+    "status": "safe",
+    "locationName": "Campo de Golf, Caraballeda — Caraballeda, Vargas, La Guaira",
+    "description": "Visto por última vez en Campo de Golf, Caraballeda — Caraballeda, Vargas, La Guaira el Fecha no indicada.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p6f9c3b7f4d1a.jpg",
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Victorick José Moreno Chávez",
+    "age": 37,
+    "status": "safe",
+    "locationName": "La guaira caraballeda — La Guaira, Vargas, La Guaira",
+    "description": "37 años de edad. Visto por última vez en La guaira caraballeda — La Guaira, Vargas, La Guaira el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/pde81aa693dcb.jpg",
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Edis López",
+    "age": 70,
+    "status": "safe",
+    "locationName": "Hospital Universitario de Caracas",
+    "description": "70 años de edad. Visto por última vez en Hospital Universitario de Caracas el 25 jun 2026.",
+    "photoUrl": null,
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Carlos Torres",
+    "age": 72,
+    "status": "safe",
+    "locationName": "Edificio Obelisco. Altamira — Altamira, Santa María de Ipire, Guárico",
+    "description": "72 años de edad. Visto por última vez en Edificio Obelisco. Altamira — Altamira, Santa María de Ipire, Guárico el 24 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p8760e3352024.jpg",
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  },
+  {
+    "name": "Yorvis díaz",
+    "age": 23,
+    "status": "missing",
+    "locationName": "Catia La Mar, Vargas, La Guaira",
+    "description": "23 años de edad. Visto por última vez en Catia La Mar, Vargas, La Guaira el 26 jun 2026.",
+    "photoUrl": "https://cdn-imagenes.theempire.tech/images/p3afb77da174b.jpg",
+    "createdAt": "2026-06-29T15:15:08.659Z"
+  }
+]

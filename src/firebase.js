@@ -10,6 +10,7 @@ import {
   orderBy,
   serverTimestamp 
 } from 'firebase/firestore';
+import scrapedReports from './data/scraped_reports.json';
 
 // Obtener variables de entorno de Vite
 const firebaseConfig = {
@@ -101,6 +102,38 @@ const INITIAL_MOCK_REPORTS = [
 // Inicializar localStorage si está vacío
 if (!localStorage.getItem('venezuela_earthquake_reports')) {
   localStorage.setItem('venezuela_earthquake_reports', JSON.stringify(INITIAL_MOCK_REPORTS));
+}
+
+// Sincronizar reportes extraídos (scraped) en LocalStorage de forma incremental
+try {
+  const localData = JSON.parse(localStorage.getItem('venezuela_earthquake_reports')) || [];
+  let updated = false;
+
+  scrapedReports.forEach((scraped, index) => {
+    const scrapedNameNormalized = scraped.name.toLowerCase().trim();
+    const exists = localData.some(r => r.name.toLowerCase().trim() === scrapedNameNormalized);
+    if (!exists) {
+      localData.push({
+        id: `scraped-${index}-${Date.now()}`,
+        name: scraped.name,
+        phone: '+58 000-000-0000',
+        status: scraped.status || 'missing',
+        location: { lat: 10.4806, lng: -66.9036 }, // Caracas por defecto para reportes locales
+        locationName: scraped.locationName || 'Desconocido',
+        description: scraped.description || 'Sin detalles adicionales.',
+        photo: scraped.photoUrl || null,
+        createdAt: scraped.createdAt || new Date().toISOString()
+      });
+      updated = true;
+    }
+  });
+
+  if (updated) {
+    localStorage.setItem('venezuela_earthquake_reports', JSON.stringify(localData));
+    console.log(`🔥 Sincronizados ${scrapedReports.length} reportes extraídos en LocalStorage.`);
+  }
+} catch (e) {
+  console.error("Error sincronizando reportes extraídos en LocalStorage:", e);
 }
 
 /**
